@@ -18,6 +18,7 @@ export const starshipsSlice = createSlice({
         items: [],
         isLoading: false,
         page: 1,
+        hasNextPage: true,
     },
     reducers: {},
     extraReducers: {
@@ -25,10 +26,16 @@ export const starshipsSlice = createSlice({
             state.isLoading = true;
         },
         [fetchStarShips.fulfilled]: (state, action) => {
-            console.log(action);
-            state.items = action.payload;
+
+            state.items = [...state.items, ...action.payload];
             state.isLoading = false;
             state.page += 1;
+            console.log(state.page);
+            if (state.page === 5) {
+                state.hasNextPage = false;
+            }
+
+
         },
         [fetchStarShips.rejected]: (state, action) => {
             state.isLoading = false;
