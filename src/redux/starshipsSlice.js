@@ -1,12 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import {  starshipApi } from "../api/api";
 
 
 //get items
 export const fetchStarShips = createAsyncThunk('starships/getStarShips', async () => {
-    const res = await axios(`${process.env.REACT_APP_API_BASE_ENDPOINT}`)
+    
+    const res = await axios(starshipApi);
     return res.data.results;
 })
+//ex img
 
 export const starshipsSlice = createSlice({
     name: 'starships',
@@ -16,9 +19,10 @@ export const starshipsSlice = createSlice({
     reducers: {},
     extraReducers: {
         [fetchStarShips.fulfilled]: (state, action) => {
-            console.log(action.payload);
+            //console.log(action.payload);
             state.items = action.payload;
-        }
+        },
+        
     }
 })
 
