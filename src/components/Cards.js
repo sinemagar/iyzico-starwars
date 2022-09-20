@@ -6,12 +6,14 @@ import "./style/style.css";
 //import Loading from "./Loading";
 import Error from "./Error";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 function Cards() {
     //get  with useSelector
     const starships = useSelector((state) => state.starships.items);
+    console.log("starships:", starships);
     //loading status
-    const isLoading = useSelector((state) => state.starships.isLoading);
+    const status = useSelector((state) => state.starships.status);
     //error status
     const error = useSelector((state) => state.starships.error);
     //pages
@@ -20,13 +22,18 @@ function Cards() {
     const hasNextPage = useSelector((state) => state.starships.hasNextPage);
 
     const dispatch = useDispatch();
+    //console.log(starships.length);
     //dispatch event wt useEffect
     useEffect(() => {
-        dispatch(fetchStarShips());
+
+        if (starships.length === 0) {
+            dispatch(fetchStarShips());
+        }
+
     }, [dispatch]);
 
     //error
-    if (error) {
+    if (status === "failed") {
         return <Error message={error} />;
     }
 
@@ -40,7 +47,7 @@ function Cards() {
                 >
                     {starships.map((starships) => (
                         <div key={starships.name}>
-                            <Link to="/starships/2">
+                            <Link to={`starships/${starships.name}`}>
                                 <div className="starship_header">
                                     <strong>{starships.name}</strong>
                                 </div>
@@ -66,9 +73,10 @@ function Cards() {
                 </Masonry>
             </div>
             <div style={{ padding: 30, textAlign: "center" }}>
-                {hasNextPage && !isLoading && (
+                {status === "loading" && <Loading />}
+                {hasNextPage && status !== "loading" && (
                     <button
-                        className={isLoading && "ui basic loading button"}
+
                         onClick={() => dispatch(fetchStarShips(nextPage))}
                     >
                         Load More
@@ -76,7 +84,11 @@ function Cards() {
                     </button>
                 )}
                 {nextPage === 5 &&
-                    <div>There is nothing to be shown.</div>
+                    <div style={{ color: "#eee" }}>
+                        <strong>
+                            There is nothing to be shown.
+                        </strong>
+                    </div>
                 }
             </div>
         </div>

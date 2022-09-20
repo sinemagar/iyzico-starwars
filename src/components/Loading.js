@@ -4,7 +4,7 @@ import "./style/style.css"
 function Loading() {
     return (
 
-        <button className="ui orange loading button">Loading</button>
+        <button className="ui basic loading button">Loading</button>
     )
 }
 

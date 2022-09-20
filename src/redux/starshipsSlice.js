@@ -4,10 +4,14 @@ import { starshipApi } from "../api/api";
 
 //const page=1
 //get items
+
 export const fetchStarShips = createAsyncThunk(
     "starships/getStarShips",
     async (page = 1) => {
-        const res = await axios(`${starshipApi}/?page=${page}&format=json`);
+        const api = `${starshipApi}/?page=${page}&format=json`
+        const res = await axios(api);
+        console.log("res.data.next:", res.data);
+
         return res.data.results;
     }
 );
@@ -16,29 +20,32 @@ export const starshipsSlice = createSlice({
     name: "starships",
     initialState: {
         items: [],
-        isLoading: false,
+        status: "idle",
         page: 1,
         hasNextPage: true,
     },
     reducers: {},
     extraReducers: {
         [fetchStarShips.pending]: (state, action) => {
-            state.isLoading = true;
+            state.status = "loading";
         },
         [fetchStarShips.fulfilled]: (state, action) => {
 
+
             state.items = [...state.items, ...action.payload];
-            state.isLoading = false;
+            state.status = "succeeded";
             state.page += 1;
-            console.log(state.page);
+            console.log(state.action/*  */);
+
             if (state.page === 5) {
                 state.hasNextPage = false;
             }
 
 
+
         },
         [fetchStarShips.rejected]: (state, action) => {
-            state.isLoading = false;
+            state.status = "failed";
             state.error = action.error.message;
         },
     },
