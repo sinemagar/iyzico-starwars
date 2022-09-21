@@ -14,18 +14,35 @@ function Details() {
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
     // console.log("id:", id);
-
     //axios get process with useEffect
     useEffect(() => {
         axios(`${starshipApi}/${id}/?format=json`)
-            .then(
-                (res) => res.data,)
+            .then((res) => res.data,)
             .then(data => setStar(data))
             .finally(() => setLoading(false))
+        console.log(id);
     }, [id])
+
+
+    const [pic, setPic] = useState(null)
+    useEffect(() => {
+        axios.get(`https://raw.githubusercontent.com/sinemagar/My-React-Projects/master/todo-app/api/image.json`)
+            .then((response) => {
+                setPic(response.data)
+                console.log("pic:", pic);
+            }
+
+            )
+    }, [setPic])
 
     return (
         <div className='card'>
+
+
+            {pic.map((image) => {
+                console.log(image.id.slice(32).replace("/", ""));
+            })}
+
             {loading && <Loading />}
             <Link to="/">
                 <button style={{ margin: "10px" }}
@@ -37,7 +54,7 @@ function Details() {
             </Link>
             <div className='detail'>
                 {
-                    star && (
+                    star && pic && (
                         <div className="ui card">
                             <div className="content">
                                 <b>
@@ -45,7 +62,7 @@ function Details() {
                                 </b>
                             </div>
                             <div className="image">
-                                <img style={{ padding: "10px", borderStyle: "10px" }} src='https://semantic-ui.com/images/wireframe/image.png' />
+                                <img style={{ padding: "10px", borderStyle: "10px" }} src={pic[id - 2].img} />
                             </div>
 
                             <div className="content" >

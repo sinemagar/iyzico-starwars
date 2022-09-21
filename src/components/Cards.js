@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStarShips } from "../redux/starshipsSlice";
 import Masonry from "react-masonry-css";
@@ -7,6 +7,7 @@ import "./style/style.css";
 import Error from "./Error";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
+import axios from "axios";
 
 function Cards() {
     //get  with useSelector
@@ -26,6 +27,7 @@ function Cards() {
     //find url
 
 
+
     //dispatch event wt useEffect
     useEffect(() => {
 
@@ -41,6 +43,8 @@ function Cards() {
     if (status === "failed") {
         return <Error message={error} />;
     }
+
+
 
     return (
         <div className="cardInfo">
