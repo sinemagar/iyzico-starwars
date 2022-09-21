@@ -1,0 +1,19 @@
+.detail {
+  margin: auto;
+  width: 500px;
+  padding: 10px;
+  border: 2px solid;
+  box-shadow: 6px 4px;
+}
+
+.ui.card {
+  background-color: rgb(194, 181, 0);
+  width: 500px;
+  border: 5px solidrgb(194, 181, 0);
+  font-size: 15px;
+}
+.content {
+  display: flex;
+  align-content: space-around;
+  flex-direction: column;
+}

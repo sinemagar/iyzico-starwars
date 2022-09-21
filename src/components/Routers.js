@@ -12,7 +12,7 @@ function Routers() {
 
       <Routes className="App">
         <Route exact path="/" element={<Home />} />
-        <Route path="/starships/:name" element={<Details />} />
+        <Route path="/starships/:id" element={<Details />} />
       </Routes>
     </div>
   );

@@ -22,13 +22,18 @@ function Cards() {
     const hasNextPage = useSelector((state) => state.starships.hasNextPage);
 
     const dispatch = useDispatch();
-    //console.log(starships.length);
+    //var id = url.slice(32)
+    //find url
+
+
     //dispatch event wt useEffect
     useEffect(() => {
 
         if (starships.length === 0) {
             dispatch(fetchStarShips());
+
         }
+
 
     }, [dispatch]);
 
@@ -38,7 +43,7 @@ function Cards() {
     }
 
     return (
-        <div className="container">
+        <div className="cardInfo">
             <div className="row">
                 <Masonry
                     breakpointCols={3}
@@ -47,7 +52,8 @@ function Cards() {
                 >
                     {starships.map((starships) => (
                         <div key={starships.name}>
-                            <Link to={`starships/${starships.name}`}>
+
+                            <Link to={`starships/${starships.url.slice(32)}`}>
                                 <div className="starship_header">
                                     <strong>{starships.name}</strong>
                                 </div>

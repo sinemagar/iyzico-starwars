@@ -1,1 +1,1 @@
-export const starshipApi="https://swapi.dev/api/starships"
+export const starshipApi = "https://swapi.dev/api/starships"
