@@ -1,20 +1,19 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from "react-router-dom";
 import { starshipApi } from '../../api/api';
 import Loading from '../../components/Loading';
-import { fetchStarShips } from '../../redux/starshipsSlice';
+
 import "./index.css";
 
 function Details() {
 
-    //console.log("starshipsssssss:", starships);
-    const status = useSelector((state) => state.starships.status);
+
+
     const [star, setStar] = useState(null)
     const [loading, setLoading] = useState(true)
     const { id } = useParams()
-    console.log("id:", id);
+    // console.log("id:", id);
 
     //axios get process with useEffect
     useEffect(() => {
@@ -27,12 +26,12 @@ function Details() {
 
     return (
         <div className='card'>
-            {status === "loading" && <Loading />}
+            {loading && <Loading />}
             <Link to="/">
                 <button style={{ margin: "10px" }}
-                    class="ui left labeled icon inverted yellow button"
+                    className="ui left labeled icon inverted yellow button"
                 >
-                    <i class="left arrow icon"></i>
+                    <i className="left arrow icon"></i>
                     Back
                 </button>
             </Link>
