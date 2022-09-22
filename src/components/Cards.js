@@ -24,9 +24,6 @@ function Cards() {
 
     const dispatch = useDispatch();
     //var id = url.slice(32)
-    //find url
-
-
 
     //dispatch event wt useEffect
     useEffect(() => {
@@ -38,6 +35,9 @@ function Cards() {
 
 
     }, [dispatch]);
+
+
+
 
     //error
     if (status === "failed") {
