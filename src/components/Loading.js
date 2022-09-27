@@ -3,8 +3,9 @@ import React from 'react'
 import "./style/style.css"
 function Loading() {
     return (
-
-        <button className="ui basic loading button">Loading</button>
+        <center>
+            <div className="loader"></div>
+        </center>
     )
 }
 

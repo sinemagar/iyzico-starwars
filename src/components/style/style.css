@@ -20,7 +20,7 @@
 }
 .starship_info {
   padding: 10px 0;
-  font-size: 13px;
+  font-size: 12px;
   margin: 10px;
 }
 .starship_header {
@@ -40,4 +40,21 @@
 }
 .cardInfo {
   padding: 10px;
+}
+.loader {
+  border: 16px solid #ffffff; /* Light grey */
+  border-top: 16px solid #ffd000; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

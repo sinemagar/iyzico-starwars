@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { defaultImg, imageApi, starshipApi } from "../../api/api";
 import Loading from "../../components/Loading";
 
@@ -40,7 +40,7 @@ function Details() {
     return (
         <div className="card">
             {loading && <Loading />}
-            <Link to="/">
+            <a href="/">
                 <button
                     style={{ margin: "10px" }}
                     className="ui left labeled icon inverted yellow button"
@@ -48,7 +48,7 @@ function Details() {
                     <i className="left arrow icon"></i>
                     Back
                 </button>
-            </Link>
+            </a>
             <div className="detail">
                 {star && (
                     <div className="ui card">

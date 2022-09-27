@@ -13,9 +13,6 @@ export const fetchStarShips = createAsyncThunk(
         const api = `${starshipApi}/?page=${page}&format=json`
         const res = await axios(api);
         const resultsApi = res.data.results
-
-
-
         console.log("res.data.next:", resultsApi);
 
         return resultsApi;
@@ -31,9 +28,7 @@ export const starshipsSlice = createSlice({
         page: 1,
         hasNextPage: true,
     },
-    reducers: {
-
-    },
+    reducers: {},
     extraReducers: {
         [fetchStarShips.pending]: (state, action) => {
             state.status = "loading";

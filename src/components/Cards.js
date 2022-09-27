@@ -45,7 +45,7 @@ function Cards() {
                     setImagess(obj.data)
             )
     }, []);
-    console.log("imagess", imagess)
+    //console.log("imagess", imagess)
 
 
     //error
@@ -56,7 +56,7 @@ function Cards() {
     //fonks name gönderip starshipdeki name indexini bulma
     const lastIndexOfName = (name) => {
         let index = [...starships]
-            .reverse()
+            .reverse()//diziyi tersine çevirme
             .findIndex((pageIndex) => pageIndex.name === name);
         return index >= 0 ? starships.length - 1 - index : index;
     }
@@ -72,9 +72,9 @@ function Cards() {
                 >
                     {starships.map((starships) => {
                         //image için ilgili index i bul src de kullanmak için
-                        let dene = lastIndexOfName(starships.name);
+                        let imageIndex = lastIndexOfName(starships.name);
                         //typeof controle
-                        //console.log("deneme", typeof lastIndexOfName(starships.name))
+                        //console.log("imageIndexme", typeof lastIndexOfName(starships.name))
                         return (
                             <div key={starships.name}>
 
@@ -88,7 +88,7 @@ function Cards() {
                                     <img
                                         className="starships"
                                         alt={starships.name}
-                                        src={imagess[dene].img}
+                                        src={imagess[imageIndex].img}
                                     />
                                     <div>
                                         <span className="starship_info">
@@ -97,7 +97,7 @@ function Cards() {
                                         </span>
                                         <br />
                                         <span className="starship_info">
-                                            <strong>HYPERDRIVER RATING : </strong>
+                                            <b>HYPERDRIVER RATING : </b>
                                             {starships.hyperdrive_rating}
                                         </span>
                                     </div>
@@ -114,7 +114,7 @@ function Cards() {
                 {status === "loading" && <Loading />}
                 {hasNextPage && status !== "loading" && (
                     <button
-
+                        className="ui inverted yellow button"
                         onClick={() => dispatch(fetchStarShips(nextPage))}
                     >
                         Load More
