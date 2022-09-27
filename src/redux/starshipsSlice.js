@@ -1,20 +1,27 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+
 import { starshipApi } from "../api/api";
 
 //const page=1
 //get items
+
 
 export const fetchStarShips = createAsyncThunk(
     "starships/getStarShips",
     async (page = 1) => {
         const api = `${starshipApi}/?page=${page}&format=json`
         const res = await axios(api);
-        console.log("res.data.next:", res.data);
+        const resultsApi = res.data.results
 
-        return res.data.results;
+
+
+        console.log("res.data.next:", resultsApi);
+
+        return resultsApi;
     }
 );
+
 
 export const starshipsSlice = createSlice({
     name: "starships",
@@ -24,18 +31,23 @@ export const starshipsSlice = createSlice({
         page: 1,
         hasNextPage: true,
     },
-    reducers: {},
+    reducers: {
+
+    },
     extraReducers: {
         [fetchStarShips.pending]: (state, action) => {
             state.status = "loading";
         },
         [fetchStarShips.fulfilled]: (state, action) => {
 
-
             state.items = [...state.items, ...action.payload];
+
+            //  console.log("state.items:", data);
+
+
             state.status = "succeeded";
             state.page += 1;
-            console.log(state.action/*  */);
+            //console.log(state.action/*  */);
 
             if (state.page === 5) {
                 state.hasNextPage = false;
