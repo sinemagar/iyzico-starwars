@@ -42,8 +42,8 @@
   padding: 10px;
 }
 .loader {
-  border: 16px solid #ffffff; /* Light grey */
-  border-top: 16px solid #ffd000; /* Blue */
+  border: 16px solid #ffffff;
+  border-top: 16px solid #ffd000;
   border-radius: 50%;
   width: 20px;
   height: 20px;

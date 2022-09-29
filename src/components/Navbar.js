@@ -12,7 +12,7 @@ function Navbar() {
 
         }}
     >
-      <h1>StarShips</h1>
+
     </div>
   )
 }

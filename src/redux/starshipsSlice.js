@@ -20,6 +20,8 @@ export const fetchStarShips = createAsyncThunk(
 );
 
 
+
+
 export const starshipsSlice = createSlice({
     name: "starships",
     initialState: {
@@ -36,20 +38,11 @@ export const starshipsSlice = createSlice({
         [fetchStarShips.fulfilled]: (state, action) => {
 
             state.items = [...state.items, ...action.payload];
-
-            //  console.log("state.items:", data);
-
-
             state.status = "succeeded";
             state.page += 1;
-            //console.log(state.action/*  */);
-
             if (state.page === 5) {
                 state.hasNextPage = false;
             }
-
-
-
         },
         [fetchStarShips.rejected]: (state, action) => {
             state.status = "failed";
