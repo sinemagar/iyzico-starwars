@@ -1,6 +1,7 @@
 .detail {
   margin: auto;
   width: 400px;
+  height: 1000px;
   padding: 5px;
   border: 2px solid;
   box-shadow: 6px 4px;
@@ -16,4 +17,5 @@
   display: flex;
   align-content: space-around;
   flex-direction: column;
+  color: rgb(2, 4, 95);
 }

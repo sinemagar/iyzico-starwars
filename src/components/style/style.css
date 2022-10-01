@@ -1,49 +1,6 @@
-.my-masonry-grid {
-  display: flex;
-  margin-left: -20px;
-}
-.my-masonry-grid_column {
-  border-left: 20px solid transparent;
-  background-clip: padding-box;
-}
-
-/* Style your items */
-.my-masonry-grid_column > div {
-  /* change div to reference your elements in <masonry> */
-  background: rgb(243, 190, 92);
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 20px;
-}
-.starships {
-  width: 100%;
-}
-.starship_info {
-  padding: 10px 0;
-  font-size: 12px;
-  margin: 10px;
-}
-.starship_header {
-  padding: 10px 0;
-  font-size: 18px;
-}
-.my-masonry-grid_column > div > a {
-  display: block;
-  padding: 10px;
-  color: black;
-  text-decoration: none;
-}
-
-.my-masonry-grid_column > div > a:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(212, 157, 6);
-}
-.cardInfo {
-  padding: 10px;
-}
 .loader {
   border: 16px solid #ffffff;
-  border-top: 16px solid #ffd000;
+  border-top: 16px solid #ddb500;
   border-radius: 50%;
   width: 20px;
   height: 20px;
@@ -57,4 +14,10 @@
   100% {
     transform: rotate(360deg);
   }
+}
+.container {
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-left: 20px;
 }

@@ -10,8 +10,6 @@ function Details() {
     const [star, setStar] = useState(null);
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
-    // console.log("id:", id);
-    //axios get process with useEffect
     useEffect(() => {
         axios(`${starshipApi}/${id}/?format=json`)
             .then((res) => res.data)
@@ -32,8 +30,6 @@ function Details() {
             }
             setPic(foundedImg);
             console.log(foundedImg);
-
-            //   console.log(pic[5].img_id);
         });
     }, [setPic]);
 
@@ -61,7 +57,6 @@ function Details() {
                                 src={pic && pic.img}
                             />
                         </div>
-
                         <div className="content">
                             <p style={{ marginTop: "10px" }}>
                                 <strong>Model : </strong> {star.model}
