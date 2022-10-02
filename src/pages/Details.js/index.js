@@ -15,7 +15,7 @@ function Details() {
             .then((res) => res.data)
             .then((data) => setStar(data))
             .finally(() => setLoading(false));
-        console.log(id);
+
     }, []);
 
     //ffor images
@@ -55,6 +55,7 @@ function Details() {
                             <img
                                 style={{ padding: "10px", borderStyle: "10px" }}
                                 src={pic && pic.img}
+                                alt="img"
                             />
                         </div>
                         <div className="content">
