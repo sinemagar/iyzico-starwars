@@ -15,7 +15,6 @@ function Details() {
             .then((res) => res.data)
             .then((data) => setStar(data))
             .finally(() => setLoading(false));
-
     }, []);
 
     //ffor images
@@ -31,7 +30,7 @@ function Details() {
             setPic(foundedImg);
             console.log(foundedImg);
         });
-    }, [setPic]);
+    }, []);
 
     return (
         <div className="card">
