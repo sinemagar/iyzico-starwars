@@ -42,6 +42,9 @@
 ### For Starships Model Name
 
 <img src="https://i.hizliresim.com/lh1pzr5.png">
+<hr/>
+
+Teşekkürler
 
 
 
