@@ -16,7 +16,7 @@ function Details() {
             .then((data) => setStar(data))
             .finally(() => setLoading(false));
         console.log(id);
-    }, [id]);
+    }, []);
 
     //ffor images
     const [pic, setPic] = useState(null);

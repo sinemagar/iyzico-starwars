@@ -29,10 +29,10 @@ export default function Home() {
   //dispatch event wt useEffect
   useEffect(() => {
 
-    if (starships.length === 0) {
-      dispatch(fetchStarShips());
 
-    }
+    dispatch(fetchStarShips());
+
+
 
   }, [dispatch]);
 
@@ -45,10 +45,6 @@ export default function Home() {
       )
 
   }, []);
-  //error
-  if (status === "failed") {
-    return <Error message={error} />;
-  }
 
   //search
   const filtered = starships.filter((item) => {
@@ -67,6 +63,11 @@ export default function Home() {
       .findIndex((pageIndex) => pageIndex.name === name);
     return index >= 0 ? starships.length - 1 - index : index;
   }
+  //error
+  if (status === "failed") {
+    return <Error message={error} />;
+  }
+
 
   return (
     <div >
