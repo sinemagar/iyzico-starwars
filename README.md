@@ -18,5 +18,8 @@
 <img src="https://i.hizliresim.com/d14vckk.gif">
 
 
+## Starships Details Page
+
+<img src="https://i.hizliresim.com/sz2e2gy.png">
 
 
