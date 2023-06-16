@@ -1,6 +1,5 @@
-# Iyzico & Patika Practicum Final Case
 
-7 Hafta süren ve self learning uygulamasıyla kendimizi geliştirmeyi öğrendiğimiz Iyzico & Patika Practicum son görevi olan Final Case, [Starwars API](https://swapi.dev/) ile proje de cardları listelemek, page mantığı ile load more butonuna tıklayarak starshipleri listelemektedir. Search input' u ile Starshipleri aratabilir ve cardlara tıklayarak detay sayfasına gidebilirsiniz.
+Final Case, [Starwars API](https://swapi.dev/) ile proje de cardları listelemek, page mantığı ile load more butonuna tıklayarak starshipleri listelemektedir. Search input' u ile Starshipleri aratabilir ve cardlara tıklayarak detay sayfasına gidebilirsiniz.
 
 ## Projede Ayağa Kaldırmak İçin;
 
